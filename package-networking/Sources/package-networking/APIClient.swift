@@ -51,7 +51,6 @@ struct APIClient {
                 return completion(.failure(error))
             }
         }
-
         task.resume()
     }
 

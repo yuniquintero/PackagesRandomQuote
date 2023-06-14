@@ -44,11 +44,11 @@ public extension URLRequest {
                 } catch let error {
                     print(error.localizedDescription)
                 }
+                guard let paramsURL = urlComponents.url else { fatalError() }
+                self.init(url: paramsURL)
+            } else {
+                self.init(url: url)
             }
-
-            guard let paramsURL = urlComponents.url else { fatalError() }
-
-            self.init(url: paramsURL)
         } else {
             self.init(url: url)
             self.httpBody = params
